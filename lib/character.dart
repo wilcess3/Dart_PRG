@@ -5,10 +5,12 @@ abstract class Character {
   int hp;
   final int maxHp;
   final Random _random = Random();
+
   Character({
     required this.name,
     required this.hp,
   }) : maxHp = hp;
+
   int attack();
   void takeDamage(int damage) {
     hp -= damage;
@@ -28,7 +30,5 @@ abstract class Character {
   }
 
   @override
-  String toString() {
-    return name;
-  }
+  String toString();
 }
