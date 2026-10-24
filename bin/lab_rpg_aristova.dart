@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:lab_rpg_aristova/characters.dart';
 import 'package:lab_rpg_aristova/character.dart';
@@ -15,7 +16,7 @@ Character selectCharacter(String prompt) {
   stdout.write(
     '$prompt — введите имя персонажа: ',
   );
-  String? name = stdin.readLineSync();
+  String? name = stdin.readLineSync(encoding: utf8);
   name = (name == null || name.trim().isEmpty)
       ? 'Герой'
       : name.trim();
@@ -49,7 +50,7 @@ void main() {
   battle(player, enemy);
 
   stdout.write('Сыграть ещё раз? (да/нет): ');
-  String? again = stdin.readLineSync();
+  String? again = stdin.readLineSync(encoding: utf8);
 
   if (again?.trim().toLowerCase() == 'да') {
     main(); // рекурсивный перезапуск (для учебного примера)
